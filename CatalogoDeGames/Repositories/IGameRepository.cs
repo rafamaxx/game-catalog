@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace CatalogoDeGames.Repository
+namespace CatalogoDeGames.Repositories
 {
     public interface IGameRepository : IDisposable
     {

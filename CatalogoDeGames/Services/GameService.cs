@@ -2,7 +2,7 @@
 using CatalogoDeGames.Exceptions;
 using CatalogoDeGames.InputModel;
 using CatalogoDeGames.InputModel.Services;
-using CatalogoDeGames.Repository;
+using CatalogoDeGames.Repositories;
 using CatalogoDeGames.ViewModel;
 using System;
 using System.Collections.Generic;

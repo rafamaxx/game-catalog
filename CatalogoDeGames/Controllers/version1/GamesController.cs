@@ -36,7 +36,7 @@ namespace CatalogoDeGames.Controllers.version1
             var games = await _gameservice.Obtain(gameID);
             if (games == null)
                 return NoContent();
-            return Ok();
+            return Ok(games);
         }
 
         [HttpPost]
