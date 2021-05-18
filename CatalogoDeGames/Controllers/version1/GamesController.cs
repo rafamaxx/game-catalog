@@ -1,4 +1,5 @@
-﻿using CatalogoDeGames.InputModel;
+﻿using CatalogoDeGames.Exceptions;
+using CatalogoDeGames.InputModel;
 using CatalogoDeGames.InputModel.Services;
 using CatalogoDeGames.ViewModel;
 using Microsoft.AspNetCore.Mvc;
@@ -44,7 +45,7 @@ namespace CatalogoDeGames.Controllers.version1
             try{
                 var game = await _gameservice.InsertGame(insertGame);
             }
-            catch(Exception ex)
+            catch(GameRegisteredException ex)
             {
                 return UnprocessableEntity("Insert fail");
             }
@@ -59,7 +60,7 @@ namespace CatalogoDeGames.Controllers.version1
                 await _gameservice.UpdateGame(idGame, game);
                 return Ok();
             }
-            catch(Exception ex)
+            catch(GameNotRegisteredException ex)
             {
                 return NotFound("Update fail. Game not exist!");
             }
@@ -73,7 +74,7 @@ namespace CatalogoDeGames.Controllers.version1
                 await  _gameservice.UpdateGame(idGame, price);
                 return Ok();
             }
-            catch(Exception ex)
+            catch(GameNotRegisteredException ex)
             {
                 return NotFound("Update fail. Game not exist!");
             }
@@ -87,7 +88,7 @@ namespace CatalogoDeGames.Controllers.version1
                 await _gameservice.DeleteGame(idGame);
                 return Ok();
             }
-            catch(Exception ex)
+            catch(GameNotRegisteredException ex)
             {
                 return NotFound("No");
             }
