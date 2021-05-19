@@ -22,7 +22,7 @@ namespace CatalogoDeGames.Services
 
         public async Task DeleteGame(Guid idGame)
         {
-            var game = _gameRepository.Obtain(idGame);
+            var game = await _gameRepository.Obtain(idGame);
             if (game == null)
                 throw new GameNotRegisteredException();
 

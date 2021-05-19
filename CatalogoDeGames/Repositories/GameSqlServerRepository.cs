@@ -36,7 +36,7 @@ namespace CatalogoDeGames.Repositories
         {
             var games = new List<Game>();
 
-            var command = $"select * from Games order by id offset {((page - 1) * amount)} rows fetch next {amount} rows fetch next {amount} rows only";
+            var command = $"select * from Games order by Id offset {((page - 1) * amount)} rows fetch next {amount} rows only";
 
             await sqlConnection.OpenAsync();
             SqlCommand sqlCommand = new SqlCommand(command, sqlConnection);
@@ -58,9 +58,28 @@ namespace CatalogoDeGames.Repositories
 
         }
 
-        public Task<Game> Obtain(Guid id)
+        public async Task<Game> Obtain(Guid id)
         {
-            throw new NotImplementedException();
+            Game game = null;
+
+            var command = $"select * from Games Where Id = '{id}'";
+            await sqlConnection.OpenAsync();
+            SqlCommand sqlCommand = new SqlCommand(command, sqlConnection);
+            SqlDataReader sqlDataReader = await sqlCommand.ExecuteReaderAsync();
+
+            while (sqlDataReader.Read())
+            {
+                game = new Game
+                {
+                    Id = (Guid)sqlDataReader["Id"],
+                    Name = (string)sqlDataReader["Name"],
+                    Produce = (string)sqlDataReader["Produce"],
+                    Price = (double)sqlDataReader["Price"]
+                };
+            }
+
+            await sqlConnection.CloseAsync();
+            return game;
         }
 
         public async Task<List<Game>> Obtain(string name, string producer)
@@ -79,7 +98,7 @@ namespace CatalogoDeGames.Repositories
                 {
                     Id = (Guid)sqlDataReader["Id"],
                     Name = (string)sqlDataReader["Name"],
-                    Produce = (string)sqlDataReader["Producer"],
+                    Produce = (string)sqlDataReader["Produce"],
                     Price = (double)sqlDataReader["Price"]
                 });
             }
@@ -94,7 +113,7 @@ namespace CatalogoDeGames.Repositories
 
             await sqlConnection.OpenAsync();
             SqlCommand sqlCommand = new SqlCommand(command, sqlConnection);
-            sqlCommand.ExecuteNonQuery();
+            sqlCommand.ExecuteNonQueryAsync();
             await sqlConnection.CloseAsync();
         }
 
