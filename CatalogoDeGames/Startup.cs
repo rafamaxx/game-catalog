@@ -7,6 +7,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System;
+using System.IO;
+using System.Reflection;
+using static CatalogoDeGames.Controllers.version1.LifeCycleController;
 
 namespace CatalogoDeGames
 {
@@ -25,10 +29,21 @@ namespace CatalogoDeGames
             services.AddScoped<IGameService, GameService>();
             services.AddScoped<IGameRepository, GameSqlServerRepository>();
 
+            #region LifeCycle
+            services.AddSingleton<IExSingleton, ExLifeCycle>();
+            services.AddScoped<IExScoped, ExLifeCycle>();
+            services.AddTransient<IExTransient, ExLifeCycle>();
+            #endregion
+
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CatalogoDeGames", Version = "v1" });
+
+                var basePath = AppDomain.CurrentDomain.BaseDirectory;
+                var fileName = typeof(Startup).GetTypeInfo().Assembly.GetName().Name + ".xml";
+                c.IncludeXmlComments(Path.Combine(basePath, fileName));
             });
         }
 

@@ -41,14 +41,14 @@ namespace CatalogoDeGames.Controllers.version1
         {
             StringBuilder stringBuilder = new StringBuilder();
 
-            stringBuilder.AppendLine($"Singleton 1: {_exSingleton1}");
-            stringBuilder.AppendLine($"Singleton 2: {_exSingleton2}");
+            stringBuilder.AppendLine($"Singleton 1: {_exSingleton1.Id}");
+            stringBuilder.AppendLine($"Singleton 2: {_exSingleton2.Id}");
             stringBuilder.AppendLine();
-            stringBuilder.AppendLine($"Scoped 1: {_exScoped1}");
-            stringBuilder.AppendLine($"Scoped 2: {_exScoped2}");
+            stringBuilder.AppendLine($"Scoped 1: {_exScoped1.Id}");
+            stringBuilder.AppendLine($"Scoped 2: {_exScoped2.Id}");
             stringBuilder.AppendLine();
-            stringBuilder.AppendLine($"Transient 1: {_exTransient1}");
-            stringBuilder.AppendLine($"Transient 2: {_exTransient2}");
+            stringBuilder.AppendLine($"Transient 1: {_exTransient1.Id}");
+            stringBuilder.AppendLine($"Transient 2: {_exTransient2.Id}");
 
             return Task.FromResult(stringBuilder.ToString());
         }
@@ -65,6 +65,17 @@ namespace CatalogoDeGames.Controllers.version1
         { }
         public interface IExTransient : Iex
         { }
+
+        public class ExLifeCycle: IExScoped, IExSingleton, IExTransient
+        {
+            private readonly Guid _guid;
+            public ExLifeCycle()
+            {
+                _guid = Guid.NewGuid();
+            }
+
+            public Guid Id => _guid;
+        }
 
 
     }
