@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatalogoDeGames", "CatalogoDeGames\CatalogoDeGames.csproj", "{E4AB0697-0594-4800-96A9-6DD45D34FA0A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AB4FB17E-3073-4EAF-8E0B-AD62AC0D1D0D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{C875D3D3-D8E1-437B-8037-A39F2F5E9AEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.tests", "Api.tests\Api.tests.csproj", "{36E8E9A6-6285-40BC-A02A-655351602748}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +21,17 @@ Global
 		{E4AB0697-0594-4800-96A9-6DD45D34FA0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4AB0697-0594-4800-96A9-6DD45D34FA0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4AB0697-0594-4800-96A9-6DD45D34FA0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36E8E9A6-6285-40BC-A02A-655351602748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36E8E9A6-6285-40BC-A02A-655351602748}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36E8E9A6-6285-40BC-A02A-655351602748}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36E8E9A6-6285-40BC-A02A-655351602748}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E4AB0697-0594-4800-96A9-6DD45D34FA0A} = {AB4FB17E-3073-4EAF-8E0B-AD62AC0D1D0D}
+		{36E8E9A6-6285-40BC-A02A-655351602748} = {C875D3D3-D8E1-437B-8037-A39F2F5E9AEA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8DA58ACC-CDBB-493D-B61C-036EA064A0D3}

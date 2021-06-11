@@ -1,4 +1,5 @@
 using CatalogoDeGames.InputModel.Services;
+using CatalogoDeGames.Middleware;
 using CatalogoDeGames.Repositories;
 using CatalogoDeGames.Services;
 using Microsoft.AspNetCore.Builder;
@@ -56,6 +57,8 @@ namespace CatalogoDeGames
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CatalogoDeGames v1"));
             }
+
+            app.UseMiddleware<ExceptionMiddleware>();
 
             app.UseHttpsRedirection();
 

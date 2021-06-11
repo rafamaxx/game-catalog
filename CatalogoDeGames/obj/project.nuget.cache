@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1K4ocALPL1NehTeuAgN9Zsftf4DrMx+kzhz52MZk2MDVqF3uX0TjPk+Ai2eG+IDQlCwI7sDS8cC4Po4yRYobnQ==",
+  "dgSpecHash": "xQfqja6395OlCoSI4XJK7hgGVksVH8RxATXI5kNrdxyynSLPrQ9tp1CZj/JHzhEg+YXu5LLTyV8CHBjLo5PFzg==",
   "success": true,
-  "projectFilePath": "C:\\Workspace\\CatalogoDeGames\\CatalogoDeGames\\CatalogoDeGames.csproj",
+  "projectFilePath": "D:\\Workspace\\CatalogoDeGames\\CatalogoDeGames\\CatalogoDeGames.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Rafam\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Rafam\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
