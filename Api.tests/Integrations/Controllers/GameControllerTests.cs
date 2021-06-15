@@ -4,14 +4,16 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Api.tests.Integrations.Controllers
 {
-    public class GameControllerTests : IClassFixture<WebApplicationFactory<Startup>>
+    public class GameControllerTests : IClassFixture<WebApplicationFactory<Startup>>, IAsyncLifetime
     {
         private readonly WebApplicationFactory<Startup> _factory;
         private readonly HttpClient _httpCliente;
+        protected GameInputModel GameInputModel;
 
         public GameControllerTests(WebApplicationFactory<Startup> factory)
         {
@@ -20,15 +22,15 @@ namespace Api.tests.Integrations.Controllers
         }
 
         [Fact]
-        public void Obtain_GetAll_Sucess()
+        public async Task Obtain_GetAll_Sucess()
         {
-           var httpClientRequest = _httpCliente.GetAsync("api/version1/Games").GetAwaiter().GetResult();
+            var httpClientRequest = await _httpCliente.GetAsync("api/version1/Games");
                     
            Assert.Equal(System.Net.HttpStatusCode.OK, httpClientRequest.StatusCode);            
         }
 
         [Fact]
-        public void InsertNewGame_AllFields_Created()
+        public async Task InsertNewGame_AllFields_Created()
         {
             var gameInputModel = new GameInputModel
             {
@@ -38,9 +40,19 @@ namespace Api.tests.Integrations.Controllers
             };
             StringContent content = new StringContent(JsonConvert.SerializeObject(gameInputModel), Encoding.UTF8,"application/json");
 
-            var httpClientRequest = _httpCliente.GetAsync("api/version1/Games").GetAwaiter().GetResult();
+            var httpClientRequest = await _httpCliente.GetAsync("api/version1/Games");
 
             Assert.Equal(System.Net.HttpStatusCode.OK, httpClientRequest.StatusCode);
+        }
+
+        public async Task InitializeAsync()
+        {
+            await InsertNewGame_AllFields_Created();
+        }
+
+        public async Task DisposeAsync()
+        {
+             _httpCliente.Dispose();
         }
     }
 }
