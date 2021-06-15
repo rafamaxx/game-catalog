@@ -1,6 +1,9 @@
 ﻿using CatalogoDeGames;
+using CatalogoDeGames.InputModel;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Newtonsoft.Json;
 using System.Net.Http;
+using System.Text;
 using Xunit;
 
 namespace Api.tests.Integrations.Controllers
@@ -20,9 +23,24 @@ namespace Api.tests.Integrations.Controllers
         public void Obtain_GetAll_Sucess()
         {
            var httpClientRequest = _httpCliente.GetAsync("api/version1/Games").GetAwaiter().GetResult();
+                    
+           Assert.Equal(System.Net.HttpStatusCode.OK, httpClientRequest.StatusCode);            
+        }
+
+        [Fact]
+        public void InsertNewGame_AllFields_Created()
+        {
+            var gameInputModel = new GameInputModel
+            {
+                Name = "insert teste name",
+                Producer = "insert test producer",
+                Price = 123.2
+            };
+            StringContent content = new StringContent(JsonConvert.SerializeObject(gameInputModel), Encoding.UTF8,"application/json");
+
+            var httpClientRequest = _httpCliente.GetAsync("api/version1/Games").GetAwaiter().GetResult();
 
             Assert.Equal(System.Net.HttpStatusCode.OK, httpClientRequest.StatusCode);
-                   
         }
     }
 }
