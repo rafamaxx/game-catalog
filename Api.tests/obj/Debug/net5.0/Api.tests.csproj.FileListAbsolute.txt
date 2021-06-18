@@ -403,3 +403,5 @@ D:\Workspace\CatalogoDeGames\Api.tests\obj\Debug\net5.0\Api.tests.dll
 D:\Workspace\CatalogoDeGames\Api.tests\obj\Debug\net5.0\ref\Api.tests.dll
 D:\Workspace\CatalogoDeGames\Api.tests\obj\Debug\net5.0\Api.tests.pdb
 D:\Workspace\CatalogoDeGames\Api.tests\obj\Debug\net5.0\Api.tests.genruntimeconfig.cache
+D:\Workspace\CatalogoDeGames\Api.tests\bin\Debug\net5.0\AutoBogus.dll
+D:\Workspace\CatalogoDeGames\Api.tests\bin\Debug\net5.0\Bogus.dll

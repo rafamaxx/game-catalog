@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "aVR0XdLMcvKMDhTZCSbIVsyc+wsbqjbWy3LL2TI7sjaqoDJ8B1mPq+Vtr+WtOhlrUkMX9QdT4XoCRb7yTzZufw==",
+  "dgSpecHash": "VRjMhUiM++r0ujX3xQe5ffOUwmxodp/yT1pJUuJONI/XHJYN/bnalxoMF8JVOds7a2D9Hi0SWgJN/YXatBwdkw==",
   "success": true,
   "projectFilePath": "D:\\Workspace\\CatalogoDeGames\\Api.tests\\Api.tests.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Rafam\\.nuget\\packages\\autobogus\\2.13.0\\autobogus.2.13.0.nupkg.sha512",
+    "C:\\Users\\Rafam\\.nuget\\packages\\bogus\\31.0.3\\bogus.31.0.3.nupkg.sha512",
     "C:\\Users\\Rafam\\.nuget\\packages\\coverlet.collector\\1.3.0\\coverlet.collector.1.3.0.nupkg.sha512",
     "C:\\Users\\Rafam\\.nuget\\packages\\microsoft.aspnetcore.mvc.testing\\5.0.7\\microsoft.aspnetcore.mvc.testing.5.0.7.nupkg.sha512",
     "C:\\Users\\Rafam\\.nuget\\packages\\microsoft.aspnetcore.testhost\\5.0.7\\microsoft.aspnetcore.testhost.5.0.7.nupkg.sha512",
@@ -76,6 +78,7 @@
     "C:\\Users\\Rafam\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\Rafam\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
     "C:\\Users\\Rafam\\.nuget\\packages\\system.console\\4.3.0\\system.console.4.3.0.nupkg.sha512",
+    "C:\\Users\\Rafam\\.nuget\\packages\\system.data.datasetextensions\\4.5.0\\system.data.datasetextensions.4.5.0.nupkg.sha512",
     "C:\\Users\\Rafam\\.nuget\\packages\\system.data.sqlclient\\4.8.2\\system.data.sqlclient.4.8.2.nupkg.sha512",
     "C:\\Users\\Rafam\\.nuget\\packages\\system.diagnostics.debug\\4.3.0\\system.diagnostics.debug.4.3.0.nupkg.sha512",
     "C:\\Users\\Rafam\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.3.0\\system.diagnostics.diagnosticsource.4.3.0.nupkg.sha512",

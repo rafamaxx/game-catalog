@@ -1,4 +1,5 @@
-﻿using CatalogoDeGames;
+﻿using AutoBogus;
+using CatalogoDeGames;
 using CatalogoDeGames.InputModel;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json;
@@ -32,12 +33,8 @@ namespace Api.tests.Integrations.Controllers
         [Fact]
         public async Task InsertNewGame_AllFields_Created()
         {
-            var gameInputModel = new GameInputModel
-            {
-                Name = "insert teste name",
-                Producer = "insert test producer",
-                Price = 123.2
-            };
+            var gameInputModel = new AutoFaker<GameInputModel>();
+        
             StringContent content = new StringContent(JsonConvert.SerializeObject(gameInputModel), Encoding.UTF8,"application/json");
 
             var httpClientRequest = await _httpCliente.GetAsync("api/version1/Games");
