@@ -8,7 +8,7 @@ namespace CatalogoDeGames.Exceptions
     public class GameRegisteredException : Exception
     {
         public GameRegisteredException()
-            : base (" Game Alread Registered")
+            : base (" Game Already Registered")
         { }
     }
 }
